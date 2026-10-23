@@ -25,6 +25,8 @@ select * from Contatos;
 use BANCO_TESTE;
 CREATE TABLE Mensagens (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    texto_mensagem VARCHAR(255) NOT NULL,
+    data_envio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     contato_id INT,
 
     FOREIGN KEY (contato_id) REFERENCES Contatos(id)
