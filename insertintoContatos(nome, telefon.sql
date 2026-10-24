@@ -1,3 +1,4 @@
+ 22-10-26
  insert into Contatos (nome, telefone) 
  values 
 	 ("ana", "(11)8888888"),
@@ -46,3 +47,29 @@ JOIN Contatos ON Mensagens.contato_id = Contatos.id;
 SELECT Contatos.nome, Mensagens.texto_mensagem
 FROM Contatos
 LEFT JOIN Mensagens ON Contatos.id = Mensagens.contato_id;
+
+--23/10/26
+CREATE USER 'leandro.lovo'@'%'
+IDENTIFIED BY 'Lovo@2026Senha!';
+
+use BANCO_TESTE;
+create table fornecedores (
+    id_fornecedor int auto_increment primary Key,
+    nome varchar(30),
+    telefone varchar(20)
+)
+
+use BANCO_TESTE;
+create table produtos (
+    id_produto int auto_increment primary Key,
+    nome varchar(30),
+    preco decimal(8 ,2),
+    id_fornecedor int,
+    FOREIGN KEY (id_fornecedor) REFERENCES fornecedores(id_fornecedor)
+)
+
+use BANCO_TESTE;
+create table vendas (
+    id_venda int auto_increment primary Key,
+    data_venda date
+)
